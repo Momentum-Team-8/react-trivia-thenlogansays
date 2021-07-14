@@ -8,7 +8,9 @@ export function CategoryList ({ categories }) {
         {categories.map((category, idx) => {
           return (
             <li key={idx}>
-              {category.name}
+              <button>
+                {category.name}
+              </button>
             </li>
           )
         })}
