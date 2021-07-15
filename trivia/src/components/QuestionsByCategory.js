@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { getQuestionsByCategory } from './api'
 
-export function QuestionsByCategory (selectedCategory) {
+export function QuestionsByCategory (props) {
   const [questionsByCategory, setQuestionsbyCategory] = useState([])
   const [loading, setLoading] = useState(true)
+
+  const { selectedCategory } = props
+
 
   useEffect(() => {
     getQuestionsByCategory(selectedCategory).then((data) => {
@@ -16,7 +19,7 @@ export function QuestionsByCategory (selectedCategory) {
     ? 'Questions Loading'
     : (
       <div>
-        <h4>Quiz</h4>
+        <h4>{selectedCategory.name} Quiz</h4>
         <ul>
           {questionsByCategory.map((data) =>{
             return (
