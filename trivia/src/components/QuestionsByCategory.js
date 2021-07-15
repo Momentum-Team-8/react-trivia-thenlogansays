@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getQuestionsByCategory } from './api'
+import he from 'he'
 
 export function QuestionsByCategory (props) {
   const [questionsByCategory, setQuestionsbyCategory] = useState([])
@@ -21,10 +22,10 @@ export function QuestionsByCategory (props) {
       <div>
         <h4>{selectedCategory.name} Quiz</h4>
         <ul>
-          {questionsByCategory.map((data) =>{
+          {questionsByCategory.map((data) => {
             return (
               <div key={data.question}>
-                <p>{data.question}?</p>
+                <p>{he.decode(data.question)}?</p>
               </div>
             )
           })}
