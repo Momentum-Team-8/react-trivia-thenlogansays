@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import { getQuestionsByCategory } from './api'
-import { CategoryList } from './CategoryList'
 
-export function QuestionsByCategory(selectedCategory) {
+export function QuestionsByCategory (selectedCategory) {
   const [questionsByCategory, setQuestionsbyCategory] = useState([])
   const [loading, setLoading] = useState(true)
 
