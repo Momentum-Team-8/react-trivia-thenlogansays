@@ -1,9 +1,14 @@
-export const Score = ({ numQuestions, score }) => {
+import { handleRefresh } from './Refresh'
+
+export const Score = (props) => {
+  const { numQuestions, score } = props
+
   return (
     <>
       <h2>
-        Congrats, you scored {score} out of {numQuestions}!
+        You scored {score} out of {numQuestions}!
       </h2>
+      <button onClick={handleRefresh}>Play Again?</button>
     </>
   )
 }

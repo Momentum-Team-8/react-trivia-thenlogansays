@@ -3,6 +3,7 @@ import { getQuestionsByCategory } from './apis'
 import { QuestionCard } from './QuestionCard'
 import { Score } from './Score'
 import { Next } from './Next'
+import { handleRefresh } from './Refresh'
 
 export const Game = (props) => {
   const { selectedCategory } = props
@@ -10,9 +11,6 @@ export const Game = (props) => {
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0)
   const [done, setDone] = useState(false)
   const [score, setScore] = useState(0)
-  const handleBack = () => {
-    window.location.reload()
-  }
 
   useEffect(() => {
     const idx = currentQuestionIdx
@@ -41,7 +39,7 @@ export const Game = (props) => {
         <>
           <button
             className='Back'
-            onClick={handleBack}
+            onClick={handleRefresh}
           >
             Go Back to Categories
           </button>
