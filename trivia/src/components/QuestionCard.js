@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import he from 'he'
-import classnames from 'classnames'
 import { AnswerOpt } from './AnswerOpt'
 
 export const QuestionCard = (props) => {
@@ -33,14 +32,7 @@ export const QuestionCard = (props) => {
       <div>
         {answered && (
           <>
-            <div
-              className={classnames(
-                {
-                  'bg-green': correct,
-                  'bg-black': !correct
-                }
-              )}
-            >
+            <div>
               {correct ? 'Right!' : 'Nope!'}
             </div>
             <div className='next'>
