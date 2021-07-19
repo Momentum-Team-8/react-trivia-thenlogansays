@@ -12,6 +12,6 @@ export function getQuestionsByCategory (category) {
   return (
     axios
       .get(`https://opentdb.com/api.php?amount=10&category=${category.id}&type=multiple`)
-      .then((res) => (res.data.results))
+      .then((res) => res.data.results)
   )
 }

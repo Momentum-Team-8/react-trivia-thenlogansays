@@ -5,18 +5,18 @@ export const CategoryList = (props) => {
 
   return (
     <div>
-      <h2>Categories</h2>
-      <ul>
-        {categories.map((category, idx) => {
-          return (
-            <li key={idx}>
-              <button className='button' onClick={() => setSelectedCategory(category)}>
-                {category.name}
-              </button>
-            </li>
-          )
-        })}
-      </ul>
+      {categories.map((category) => {
+        return (
+          <div className='category' key={category.id}>
+            <button
+              className='button'
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category.name}
+            </button>
+          </div>
+        )
+      })}
     </div>
   )
 }

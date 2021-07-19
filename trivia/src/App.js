@@ -1,17 +1,15 @@
 
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import './App.css'
 import { CategoryList } from './components/CategoryList'
-import { QuestionsByCategory } from './components/QuestionsByCategory'
-import { getCategoryList } from './components/api'
+import { Game } from './components/Game'
+import { getCategoryList } from './components/apis'
 
 const App = () => {
   const [categories, setCategories] = useState([])
   const [selectedCategory, setSelectedCategory] = useState(null)
 
   useEffect(() => {
-    getCategoryList().then((categories) => setCategories(categories))
+    getCategoryList().then((data) => setCategories(data))
   }, [])
 
   return (
@@ -19,8 +17,15 @@ const App = () => {
       <h1>Welcome to Trivia Night</h1>
       <h2>Grab a Drink and Select a Category to Begin</h2>
       {selectedCategory
-        ? (<QuestionsByCategory selectedCategory={selectedCategory} />)
-        : (<CategoryList categories={categories} setSelectedCategory={setSelectedCategory} />)}
+        ? (<Game
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+           />)
+        : (<CategoryList
+            categories={categories}
+            setSelectedCategory={setSelectedCategory}
+           />
+          )}
     </div>
   )
 }
