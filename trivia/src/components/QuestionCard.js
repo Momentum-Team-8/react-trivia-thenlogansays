@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import he from 'he'
 import { AnswerOpt } from './AnswerOpt'
+import classnames from 'classnames'
 
 export const QuestionCard = (props) => {
   const { question, children, incrementScore } = props
@@ -32,8 +33,15 @@ export const QuestionCard = (props) => {
       <div>
         {answered && (
           <>
-            <div>
-              {correct ? 'Right!' : 'Nope!'}
+            <div
+              className={classnames(
+                {
+                  primary: correct,
+                  secondary: !correct
+                }
+              )}
+            >
+              {correct ? 'Correct!' : 'Nope, Sorry'}
             </div>
             <div className='next'>
               {React.cloneElement(children, { commitAnswer: commitAnswer })}

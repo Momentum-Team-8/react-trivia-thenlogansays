@@ -16,10 +16,10 @@ export const AnswerOpt = (props) => {
   }
 
   return (
-    <div>
+    <div className='grid'>
       {shuffledAnswers.map((option, idx) => (
         <button
-          className='buttons'
+          className='contrast'
           key={option}
           onClick={() => handleClick(option)}
         >

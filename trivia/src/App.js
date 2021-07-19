@@ -14,8 +14,10 @@ const App = () => {
 
   return (
     <div className='container'>
-      <h1>Welcome to Trivia Night</h1>
-      <h2>Grab a Drink and Select a Category to Begin</h2>
+      <hgroup>
+        <h1>Welcome to Trivia Night</h1>
+        <h2>Grab a Drink and Select a Category to Begin</h2>
+      </hgroup>
       {selectedCategory
         ? (<Game
             selectedCategory={selectedCategory}

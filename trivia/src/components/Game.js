@@ -5,11 +5,14 @@ import { Score } from './Score'
 import { Next } from './Next'
 
 export const Game = (props) => {
-  const { selectedCategory, handleBack } = props
+  const { selectedCategory } = props
   const [questByCat, setQuestByCat] = useState([])
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0)
   const [done, setDone] = useState(false)
   const [score, setScore] = useState(0)
+  const handleBack = () => {
+    window.location.reload()
+  }
 
   useEffect(() => {
     const idx = currentQuestionIdx
